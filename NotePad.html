@@ -1,0 +1,48 @@
+<html>
+    <head>
+    <script  
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+    </script>
+    <script>    
+     
+     $(function(){ //like main in C
+         
+         var Counter = 0;
+         var savedTitle = localStorage['Title'];
+         var savedNote = localStorage['Note'];
+         $('#Title').val(savedTitle);
+         $('#Note').val(savedNote);
+         
+         
+         setInterval(function(){
+             
+             var Title = $('#Title').val();
+             var Note = $('#Note').val();
+             
+             localStorage['Title']= Title;
+             localStorage['Note']= Note;
+             
+             Counter++;
+             $('#counterElement').html(Counter);
+               
+         },1000); 
+         
+     });  
+         
+    </script> 
+    
+    
+    </head>
+    <body>
+    <form>
+       <input type="text" id="Title"/>
+       <br>
+       <textarea id="Note" rows="10" cols="50"></textarea>
+        
+    </form>
+    <hr/>
+    Note saved <span id="counterElement">0</span> times
+    </body>
+</html>
